@@ -69,14 +69,14 @@ Ett bra arbetsflöde är som följer:
    1. `git fetch origin`
    2. `git checkout` _`<branch-name>`_
    3. `git merge origin/master`
-   4. Om merge-konflikter uppstår fixa dem och kommitta in med `git commit -a` Skicka sedan upp dem till servern med `git push`.
-9. Acceptera förfrågan och merga ihop grenen. Använder ni Azure välj "Merge (no fast-forward)". Normalt vill man även ta bort gren när man är klar.
+   4. Om merge-konflikter uppstår fixa dem och committa in med `git commit -a` Skicka sedan upp dem till servern med `git push`.
+9. Acceptera förfrågan och merga ihop grenen. Använder ni Azure välj "Merge (no fast-forward)". Normalt vill man även ta bort grenen när man är klar.
 
 ## Ändra och lägg till i din kod
 
 Steg nummer fyra är det som kanske känns mest spännande. När du ändrar din kod behöver du ha koll på tre saker. Det som kallas för "staging area", "commits" och det som är på servern.
 
-En commit är i grunden bara en namngiven uppsättning ändringar och finns endast lokalt på din dator till de skickas upp till servern med push.
+En commit är i grunden bara en namngiven uppsättning ändringar och finns endast lokalt på din dator tills de skickas upp till servern med push.
 
 Ditt staging area är där du väljer vilka ändringar som du gjort som skall ingå i en viss commit. Man kan göra detta väldigt komplicerat eller hålla sig till några enkla regler.
 
