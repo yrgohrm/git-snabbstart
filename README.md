@@ -58,7 +58,7 @@ Så fort någon vill lägga till ny funktionalitet till koden skall man göra de
 
 Ett bra arbetsflöde är som följer:
 
-1. Gör en branch via webbinterfacet. Använd ett bra namn.
+1. Gör en branch via webbinterfacet (från master). Använd ett bra namn.
 2. Kör `git fetch` för att hämta information om den till din dator
 3. Kör `git checkout` _`<branch-name>`_
 4. Ändra och lägg till i din kod.
@@ -70,7 +70,7 @@ Ett bra arbetsflöde är som följer:
    2. `git checkout` _`<branch-name>`_
    3. `git merge origin/master`
    4. Om merge-konflikter uppstår fixa dem och committa in med `git commit -a` Skicka sedan upp dem till servern med `git push`.
-9. Acceptera förfrågan och merga ihop grenen. Använder ni Azure välj "Merge (no fast-forward)". Normalt vill man även ta bort grenen när man är klar.
+9. Acceptera förfrågan och merga ihop grenen via webbinterfacet. Använder ni Azure välj "Merge (no fast-forward)". Normalt vill man även ta bort grenen när man är klar.
 
 ## Ändra och lägg till i din kod
 
@@ -91,5 +91,7 @@ En anledning att lägga till de ändrade filerna manuellt är att man då kan k�
 För att spara en uppsättning ändringar kör `git commit -m 'meddelande` (eventuellt då även med flaggan `-a`). Där 'meddelande' skall vara ett bra meddelande som handlar om vad ändringarna innebär. Anger du inte `-m` kommer du istället få upp en editor där du kan skriva ett lite längre meddelande.
 
 Jobbar man flera i samma gren kan det vara lämpligt att hämta in ändringar som de skickat till servern till dig ibland för att säkerställa att koden fungerar som det skall. För att hämta nya ändringar kör `git pull` (eller `git pull --rebase` om du inte satte flaggan som kör rebase automatiskt). Du får inte ha ändringar som du inte committat när du gör en pull.
+
+Två andra enkla kommandon som kan vara bra att ha koll på är `git status` och `git log`.
 
 Det finns extremt mycket mer att lära sig om Git, men med det här kommer man i vart fall igång.
