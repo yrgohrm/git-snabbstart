@@ -82,13 +82,13 @@ Ditt staging area är där du väljer vilka ändringar som du gjort som skall in
 
 Nya filer som inte funnits med tidigare måste läggas till för att de skall komma med i en commit.
 
-`git add` _`<somefile>`_
+`git add `_`<somefile>`_
 
 Filer som redan har varit med i en tidigare commit kan man få med på två olika sätt. Antingen lägger man till dem manuellt precis som för nya filer, eller så använder man flaggan `-a` när man kör `git commit`. Den flaggan säger till git att automatiskt lägga till alla ändrade filer till den aktuella commiten.
 
 En anledning att lägga till de ändrade filerna manuellt är att man då kan köra kommandot `git diff --cached` för att tydligt se alla ändringar innan man committar dem.
 
-För att spara en uppsättning ändringar kör `git commit -m 'meddelande` (eventuellt då även med flaggan `-a`). Där 'meddelande' skall vara ett bra meddelande som handlar om vad ändringarna innebär. Anger du inte `-m` kommer du istället få upp en editor där du kan skriva ett lite längre meddelande.
+För att spara en uppsättning ändringar kör `git commit -m 'meddelande'` (eventuellt då även med flaggan `-a`). Där 'meddelande' skall vara ett bra meddelande som handlar om vad ändringarna innebär. Anger du inte `-m` kommer du istället få upp en editor där du kan skriva ett lite längre meddelande.
 
 Jobbar man flera i samma gren kan det vara lämpligt att hämta in ändringar som de skickat till servern till dig ibland för att säkerställa att koden fungerar som det skall. För att hämta nya ändringar kör `git pull` (eller `git pull --rebase` om du inte satte flaggan som kör rebase automatiskt). Du får inte ha ändringar som du inte committat när du gör en pull.
 
