@@ -30,7 +30,7 @@ Det finns mängder av olika siter som erbjuder hostade Git-repos men följande �
 - Azure Repos (del av Dev Ops) - [azure.microsoft.com/en-us/services/devops/repos/](https://azure.microsoft.com/en-us/services/devops/repos/)
 - GitLab - [gitlab.com](http://gitlab.com/)
 
-Exakt vilka tjänster som ingår är olika, men gällande själva hanteringen av Git fungerar de väldigt lika. Den största skillnaden är antalet användare som kan jobba med privata repos med gratisnivåerna. GitHub tillåter max 4 personer som samarbetar, Azure tillåter 5 personer medan GitLab inte verkar ha någon gräns.
+Exakt vilka tjänster som ingår är olika, men gällande själva hanteringen av Git fungerar de väldigt lika. Den största skillnaden är antalet användare som kan jobba med privata repos med gratisnivåerna. GitHub tillåter obegränsat antal personer som samarbetar, Azure tillåter 5 personer medan GitLab inte heller verkar ha någon gräns.
 
 ## Arbetsflöde
 
