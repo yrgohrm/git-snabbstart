@@ -34,7 +34,7 @@ Exakt vilka tjänster som ingår är olika, men gällande själva hanteringen av
 
 ## Arbetsflöde
 
-Nedan är ett enkelt sätt att arbeta som gör att det blir rimligt lätt att göra komplexa förändringar samtidigt som man håller sin huvudgren (master) stabil.
+Nedan är ett enkelt sätt att arbeta som gör att det blir rimligt lätt att göra komplexa förändringar samtidigt som man håller sin huvudgren (master eller main) stabil.
 
 ### Skapa repository
 
@@ -54,7 +54,7 @@ $ git clone https://github.com/yrgohrm/gittest.git
 
 ### Flöde för införande av ny funktion
 
-Så fort någon vill lägga till ny funktionalitet till koden skall man göra detta i en gren (branch). Flera personer kan jobba tillsammans i en gren men jobba aldrig direkt mot master.
+Så fort någon vill lägga till ny funktionalitet till koden skall man göra detta i en gren (branch). Flera personer kan jobba tillsammans i en gren men jobba aldrig direkt mot master. Ändringar genomförs i en gren tills de är testade, granskade och klara. Då förs de över till master genom en Pull Request (ofta bara kallad PR). På detta sätt kan man hålla master-grenen i gott skick så man vet att den alltid fungerar.
 
 Ett bra arbetsflöde är som följer:
 
@@ -64,7 +64,7 @@ Ett bra arbetsflöde är som följer:
 4. Ändra och lägg till i din kod.
 5. Kör `git add` och `git commit` för att lägga till din kod lokalt.
 6. Kör `git push` för att skicka den till servern. Ev. måste du säga till git var servern finns med `git push --set-upstream origin` _`<branch-name>`_
-7. När de modifieringar som skulle göras är färdiga skapa en Pull Request i webbinterfacet. Det heter Merge Request i GitLab.
+7. När de modifieringar som skulle göras är färdiga skapa en Pull Request i webbinterfacet. Det heter Merge Request i GitLab. Detta är till för att föra över en uppsättning färdiga ändringar till master.
 8. Någon (helst någon annan) granskar koden i grenen genom att titta på och testa koden. Om det förekommer merge-fel gör följande:
    1. `git fetch origin`
    2. `git checkout` _`<branch-name>`_
