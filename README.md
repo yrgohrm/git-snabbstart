@@ -30,11 +30,37 @@ Det finns mängder av olika siter som erbjuder hostade Git-repos men följande �
 - Azure Repos (del av Dev Ops) - [azure.microsoft.com/en-us/services/devops/repos/](https://azure.microsoft.com/en-us/services/devops/repos/)
 - GitLab - [gitlab.com](http://gitlab.com/)
 
-Exakt vilka tjänster som ingår är olika, men gällande själva hanteringen av Git fungerar de väldigt lika. Den största skillnaden är antalet användare som kan jobba med privata repos med gratisnivåerna. GitHub tillåter obegränsat antal personer som samarbetar, Azure tillåter 5 personer medan GitLab inte heller verkar ha någon gräns.
+Exakt vilka tjänster som ingår är olika, men gällande själva hanteringen av Git fungerar de väldigt lika. Den största skillnaden är antalet användare som kan jobba med privata repos med gratisnivåerna. GitHub tillåter obegränsat antal personer som samarbetar, Azure tillåter 5 personer medan GitLab inte heller verkar ha någon gräns. Jag rekommenderar att ni använder GitHub om ni inte vet vilken ni skall välja.
+
+## Komma igång med GitHub
+
+Först behöver du så klart skapa ett konto hos GitHub. Gå till [github.com](https://github.com) och följ guiden för att skapa ett nytt konto.
+
+För att komma åt din kod på GitHub från din lokala dator behöver du sätta upp autentisering med hjälp av SSH. Detta innebär att du behöver installera SSH, skapa en uppsättning SSH-nycklar och registrera dessa på GitHub innan du kan komma åt din kod i GitHub. Detta behöver du göra på varje dator du vill komma åt din kod ifrån.
+
+SSH finns normalt installerat på MacOS och Linux. På Windows kommer en version med Git-installationen som kan användas från Git Bash men kan även [installeras som tillägg i Windows](https://docs.microsoft.com/en-us/windows-server/administration/openssh/openssh_install_firstuse).
+
+### Skapa SSH-nycklar
+
+När det är gjort behöver vi skapa SSH-nycklar. Detta är ett par asymetriska kryptonycklar som används istället för lösenord. Vet du att du redan har ett nyckelpar kan du hoppa över detta steg. Öppna en terminal (eller Git Bash på Windows) och kör följande kommando:
+
+```
+ssh-keygen -t ed25519 -C "your_email@example.com"
+```
+
+Tryck bara enter på alla frågor för att välja standardsvaren. I slutet låter den dig välja en passphrase, vilket är en extra säkerhetsåtgärd. Jag rekommenderar att du lämnar det fältet blankt för enkelhets skull.
+
+Systemet kommer nu ha skapat två nycklar åt dig, en publik nyckel (`id_ed25519.pub`) och en privat (`id_ed25519`). Det är mycket viktigt att din privata nyckel hålls privat, det är väsentligen en fil som innehåller ett lösenord till ditt konto på GitHub. Du finner dessa nycklar under katalogen `.ssh` i din hemkatalog. På Linux och Mac är detta `~/.ssh`, på Windows under `C:\Users\Användarnamn\.ssh`.
+
+### Lägga upp nyckel på GitHub
+
+Gå nu till din sida på GitHub. Klicka på din avatar uppe i högra hörnet och välj "Settings" i menyn. Välj sedan "SSH and GPG keys". Välj sedan "New SSH key". Som titel kan du fylla i vad du vill, t.ex. en beskrivning av exakt vilken dator du skapat nyckeln på. I den andra rutan skall du klistra in innehållet i den publika nyckeln, dvs. `id_ed25519.pub`. I Git Bash kan du köra kommandot `clip < ~/.ssh/id_ed25519.pub` för att få texten i utklipp eller öppna den med valfri texteditor.
+
+Klistra in texten i rutan och spara. Du är nu redo att börja använda Git och GitHub på riktigt. För mer information läs t.ex. [GitHubs hjälp om SSH](https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh). Det fungerar väldigt likt i de andra tjänsterna.
 
 ## Arbetsflöde
 
-Nedan är ett enkelt sätt att arbeta som gör att det blir rimligt lätt att göra komplexa förändringar samtidigt som man håller sin huvudgren (master eller main) stabil.
+Det finns många olika sätt man kan arbeta med Git med olika för- och nackdelar. Nedan är ett enkelt sätt att arbeta som gör att det blir rimligt lätt att göra komplexa förändringar samtidigt som man håller sin huvudgren (master eller main) stabil. Detta arbetssätt kallas ibland för "feature branch workflow" då man skapar en ny gren för varje ny funktion man tänker införa i koden.
 
 ### Skapa repository
 
@@ -44,13 +70,13 @@ Att skapa ett repository heter att skapa ett projekt på GitLab, medan ett proje
 
 ### Hämta ut repository
 
-Använd kommandot `git clone` för att hämta ut ditt nyskapade repo till din dator.
-
-Använder du Mac eller Linux vill du sannolikt sätta upp ssh-nycklar och klona via ssh istället för via https för att undvika att behöva ange lösenord hela tiden. Du kan självklart göra det för Windows också om du så önskar. Läs t.ex. [GitHubs hjälp om SSH](https://help.github.com/en/github/authenticating-to-github/connecting-to-github-with-ssh) för mer information. Det fungerar väldigt likt i de andra tjänsterna.
+Använd kommandot `git clone` för att hämta ut ditt nyskapade repo till din dator. För att få länken till ditt repo går du till förstasidan för ditt repo, klickar på knappen Code, väljer SSH och sedan kopierar URL:en.
 
 ```
-$ git clone https://github.com/yrgohrm/gittest.git
+$ git clone git@github.com:yrgohrm/git-snabbstart.git
 ```
+
+`git clone` kommer att skapa en ny katalog som heter som projektet. I det här fallet `git-snabbstart`.
 
 ### Flöde för införande av ny funktion
 
